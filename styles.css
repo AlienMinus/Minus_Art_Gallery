@@ -16,7 +16,7 @@ body {
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 0 30px rgba(255, 247, 0, 0.695);
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.695);
   display: flex;
   gap: 10px;
   justify-content: center;
