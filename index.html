@@ -51,6 +51,7 @@
         color: rgb(255, 255, 255);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         border: 1px solid rgba(255, 255, 255, 0.436);
+        padding: 10px 20px;
       }
 
       .toolbar button:hover,
@@ -67,12 +68,20 @@
         display: block;
         margin: auto;
         box-shadow: 0 5px 20px rgba(255, 255, 255, 0.986);
+        max-width: 100%;
+        width: 80%;
+        height: auto;
       }
 
       @media (max-width: 768px) {
-        .toolbar button {
+        .toolbar button,
+        .toolbar input {
           padding: 8px 16px;
           font-size: 14px;
+        }
+
+        .resize-controls input {
+          width: 70px;
         }
       }
 
@@ -80,9 +89,19 @@
         .toolbar {
           padding: 10px;
         }
+
         .toolbar button {
           padding: 6px 12px;
           font-size: 12px;
+        }
+
+        .resize-controls input {
+          width: 60px;
+        }
+
+        .resize-controls {
+          flex-direction: column;
+          gap: 10px;
         }
       }
 
@@ -90,6 +109,7 @@
         display: flex;
         gap: 10px;
         margin-top: 10px;
+        justify-content: center;
       }
 
       .color-swatch {
