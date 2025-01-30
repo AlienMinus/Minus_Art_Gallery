@@ -1,21 +1,136 @@
 body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-}
-
-.ad-banner {
-    background: #ccc;
-    padding: 10px;
-    margin: 10px 0;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, rgb(180, 8, 8), rgb(0, 0, 0), #8e040d);
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .toolbar {
-    margin: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(255, 247, 0, 0.695);
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.toolbar button,
+.toolbar input {
+  border: none;
+  cursor: pointer;
+  border-radius: 9px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: blue;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.436);
+  padding: 10px 20px;
+}
+
+.toolbar button:hover,
+.toolbar input:hover {
+  box-shadow: 0 0 20px rgb(255, 255, 255);
+  transform: scale(1.05);
 }
 
 canvas {
-    border: 1px solid black;
-    cursor: crosshair;
-    display: block;
-    margin: auto;
+  border: 10px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  background: white;
+  cursor: crosshair;
+  display: block;
+  margin: auto;
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.986);
+  max-width: 100%;
+  width: 80%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .toolbar button,
+  .toolbar input {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .resize-controls input {
+    width: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolbar {
+    padding: 10px;
+  }
+
+  .toolbar button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .resize-controls input {
+    width: 60px;
+  }
+
+  .resize-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.color-palette {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.color-swatch:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.resize-controls {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.resize-controls label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.resize-controls input {
+  width: 80px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.resize-controls input:hover {
+  border-color: rgba(255, 255, 255, 0.8);
 }
