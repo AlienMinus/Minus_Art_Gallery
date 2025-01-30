@@ -269,16 +269,21 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
 
-      // Function to get mouse or touch position
+      // Function to get mouse or touch position on the canvas, accounting for scaling
       function getPosition(event) {
         const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width; // Scale factor for width
+        const scaleY = canvas.height / rect.height; // Scale factor for height
         if (event.touches) {
           return {
-            x: event.touches[0].clientX - rect.left,
-            y: event.touches[0].clientY - rect.top,
+            x: (event.touches[0].clientX - rect.left) * scaleX,
+            y: (event.touches[0].clientY - rect.top) * scaleY,
           };
         }
-        return { x: event.clientX - rect.left, y: event.clientY - rect.top };
+        return {
+          x: (event.clientX - rect.left) * scaleX,
+          y: (event.clientY - rect.top) * scaleY,
+        };
       }
 
       // Mouse and touch events
