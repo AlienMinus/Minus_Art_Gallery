@@ -269,25 +269,53 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
 
+      // Function to get mouse or touch position
+      function getPosition(event) {
+        const rect = canvas.getBoundingClientRect();
+        if (event.touches) {
+          return {
+            x: event.touches[0].clientX - rect.left,
+            y: event.touches[0].clientY - rect.top,
+          };
+        }
+        return { x: event.clientX - rect.left, y: event.clientY - rect.top };
+      }
+
+      // Mouse and touch events
       canvas.addEventListener("mousedown", (event) => {
         drawing = true;
-        [lastX, lastY] = [event.offsetX, event.offsetY];
+        const position = getPosition(event);
+        lastX = position.x;
+        lastY = position.y;
       });
 
       canvas.addEventListener("mouseup", () => (drawing = false));
       canvas.addEventListener("mouseout", () => (drawing = false));
-      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("mousemove", (event) => draw(event));
+
+      canvas.addEventListener("touchstart", (event) => {
+        event.preventDefault(); // Prevents scrolling
+        drawing = true;
+        const position = getPosition(event);
+        lastX = position.x;
+        lastY = position.y;
+      });
+
+      canvas.addEventListener("touchend", () => (drawing = false));
+      canvas.addEventListener("touchmove", (event) => draw(event));
 
       function draw(event) {
         if (!drawing) return;
+        const position = getPosition(event);
         ctx.strokeStyle = currentColor;
         ctx.lineWidth = brushSize;
         ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(lastX, lastY);
-        ctx.lineTo(event.offsetX, event.offsetY);
+        ctx.lineTo(position.x, position.y);
         ctx.stroke();
-        [lastX, lastY] = [event.offsetX, event.offsetY];
+        lastX = position.x;
+        lastY = position.y;
       }
     </script>
   </body>
