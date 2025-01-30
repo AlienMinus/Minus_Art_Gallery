@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.ad-banner {
+    background: #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.toolbar {
+    margin: 10px;
+}
+
+canvas {
+    border: 1px solid black;
+    cursor: crosshair;
+    display: block;
+    margin: auto;
+}
