@@ -25,7 +25,7 @@ body {
 }
 
 .toolbar button,
-.toolbar input {
+#brushSize {
   cursor: pointer;
   border-radius: 9px;
   font-size: 16px;
@@ -38,7 +38,7 @@ body {
 }
 
 .toolbar button:hover,
-.toolbar input:hover {
+#brushSize:hover {
   box-shadow: 0 0 20px rgb(255, 255, 255);
   transform: scale(1.05);
 }
@@ -58,7 +58,7 @@ canvas {
 
 @media (max-width: 768px) {
   .toolbar button,
-  .toolbar input {
+  #brushSize {
     padding: 8px 16px;
     font-size: 14px;
   }

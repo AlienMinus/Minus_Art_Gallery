@@ -42,6 +42,17 @@
             style="background-color: yellow"
             onclick="setColor('yellow')"
           ></div>
+          <div
+            class="color-swatch"
+            style="background-color: white"
+          >
+            <input
+              type="color"
+              id="customColor"
+              class="color-swatch"
+              onchange="setColor(this.value)"
+            />
+          </div>
         </div>
 
         <button class="eraser-button" onclick="toggleErase()">Erase</button>
